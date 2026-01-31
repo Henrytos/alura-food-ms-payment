@@ -1,0 +1,21 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: alura_food
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DATABASE_DATABASE}
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+  ms_payment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+
+
+volumes:
+  mysql_data:
