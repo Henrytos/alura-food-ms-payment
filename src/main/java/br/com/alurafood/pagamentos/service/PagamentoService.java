@@ -10,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 
 @Service
 public class PagamentoService {
@@ -30,7 +29,7 @@ public class PagamentoService {
 
     public PagamentoDto obterPorId(Long id) {
         Pagamento pagamento = repository.findById(id)
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(RuntimeException::new);
 
         return modelMapper.map(pagamento, PagamentoDto.class);
     }

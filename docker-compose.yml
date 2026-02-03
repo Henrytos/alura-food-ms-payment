@@ -1,6 +1,6 @@
 services:
   database:
-    image: mysql:8.0
+    image: mysql:7
     container_name: alura_food
     restart: always
     environment:
@@ -10,10 +10,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-  ms_payment:
-    build:
-      context: .
-      dockerfile: Dockerfile
+
 
 
 
